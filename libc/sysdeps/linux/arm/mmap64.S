@@ -21,6 +21,7 @@
 #include <bits/errno.h>
 #include <sys/syscall.h>
 #include <bits/arm_asm.h>
+#include <bits/arm_bx.h>
 
 #if defined __UCLIBC_HAS_LFS__ && defined __NR_mmap2
 
