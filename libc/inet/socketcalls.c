@@ -34,6 +34,30 @@ extern int __socketcall(int call, unsigned long *args) attribute_hidden;
 #define SYS_ACCEPT4     18
 #endif
 
+/* for sparc: __NR_socket and others are defined, but syscalls are not implemen
+/* see http://lists.busybox.net/pipermail/uclibc/2004-March/029424.html */
+#ifdef __sparc__
+#undef __NR_accept
+#undef __NR_accept4
+#undef __NR_bind
+#undef __NR_connect
+#undef __NR_getpeername
+#undef __NR_getsockname
+#undef __NR_getsockopt
+#undef __NR_listen
+#undef __NR_recv
+#undef __NR_recvfrom
+#undef __NR_recvmsg
+#undef __NR_send
+#undef __NR_sendmsg
+#undef __NR_sendto
+#undef __NR_setsockopt
+#undef __NR_shutdown
+#undef __NR_socket
+#undef __NR_socketpair
+#endif
+
+
 #ifdef __UCLIBC_HAS_THREADS_NATIVE__
 #include <sysdep-cancel.h>
 #include <pthreadP.h>
