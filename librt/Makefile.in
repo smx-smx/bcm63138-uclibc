@@ -26,7 +26,7 @@ ifeq ($(UCLIBC_HAS_REALTIME),y)
 librt_SRC := $(notdir $(wildcard $(librt_DIR)/*.c))
 librt_filter_SRC :=
 ifeq ($(UCLIBC_HAS_THREADS_NATIVE),y)
-librt_filter_SRC += mq_notify.c timer_create.c timer_delete.c \
+librt_filter_SRC += mq_notify.c mq_send.c mq_receive.c timer_create.c timer_delete.c \
 	timer_getoverr.c timer_gettime.c timer_settime.c
 librt_SSRC := $(wildcard $(librt_DIR)/*.S)
 else
