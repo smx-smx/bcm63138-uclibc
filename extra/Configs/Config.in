@@ -1118,6 +1118,50 @@ config UCLIBC_HAS_ADVANCED_REALTIME
 	  pthread_mutex_timedlock()
 	  sem_timedwait()
 
+menu "Realtime functions"
+	depends on UCLIBC_HAS_REALTIME && !UCLIBC_HAS_ADVANCED_REALTIME
+
+	config UCLIBC_HAS_RT_SCHED
+		bool "Enable sched functions"
+		default y
+
+	config UCLIBC_HAS_RT_MQUEUE
+		bool "Enable mqueue functions"
+		default n
+
+	config UCLIBC_HAS_RT_CLOCK
+		bool "Enable clock functions"
+		default y
+
+	config UCLIBC_HAS_RT_ADVISE
+		bool "Enable fadvise/madvise functions"
+		default y
+
+	config UCLIBC_HAS_RT_SEMA
+		bool "Enable semaphores"
+		default y
+
+	config UCLIBC_HAS_RT_MMAN
+		bool "Enable mlock and related functions"
+		default y
+
+	config UCLIBC_HAS_RT_SIG
+		bool "Enable signal related functions"
+		default y
+
+	config UCLIBC_HAS_RT_FDATASYNC
+		bool "Enable fdatasync"
+		default y
+
+	config UCLIBC_HAS_FADVISE
+		bool "fadvise"
+		default y
+
+	config UCLIBC_HAS_MEMALIGN
+		bool "memalign"
+		default y
+endmenu
+
 #config UCLIBC_HAS_TERMIOS
 #	bool "termios functions"
 #	default y
@@ -1243,6 +1287,14 @@ config UCLIBC_HAS_RPC
 	  NFS, you can probably leave this set to N and save some space.
 
 	  If you need to use NFS then you should answer Y.
+
+config UCLIBC_HAS_SVC_EXTENSIONS
+	bool "svc extensions"
+	depends on UCLIBC_HAS_RPC
+
+config UCLIBC_HAS_XDR_EXTENSIONS
+	bool "xdr extensions"
+	depends on UCLIBC_HAS_RPC
 
 config UCLIBC_HAS_FULL_RPC
 	bool "Full RPC support"
@@ -1698,7 +1750,7 @@ config UCLIBC_HAS_STDIO_AUTO_RW_TRANSITION
 	  fflush function or to a file positioning function (fseek, fsetpos,
 	  or rewind), and input shall not be directly followed by output without
 	  an intervening call to a file positioning function, unless the input
-	  operation encounters end­of­file.
+	  operation encounters endï¿½ofï¿½file.
 
 	  Most people will answer Y.
 

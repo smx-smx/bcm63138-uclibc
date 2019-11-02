@@ -20,6 +20,10 @@ ifeq ($(UCLIBC_HAS_ADVANCED_REALTIME),y)
 CSRC += posix_fadvise.c posix_fadvise64.c
 endif
 
+ifeq ($(UCLIBC_HAS_FADVISE),y)
+CSRC += posix_fadvise64.c posix_fadvise.c
+endif
+
 # Is our compiler set up for EABI ?
 IS_EABI:=$(shell $(CC) $(CFLAGS) -x c - -E -dM </dev/null 2>/dev/null \
                  | grep __ARM_EABI__ 2>&1 >/dev/null && echo 'y' \
