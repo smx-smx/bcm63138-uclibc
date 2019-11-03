@@ -522,7 +522,7 @@ extern void cfree (void *__ptr) __THROW;
 extern void *valloc (size_t __size) __THROW __attribute_malloc__ __wur;
 #endif
 
-#if defined __USE_XOPEN2K && defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#if defined __USE_XOPEN2K && (defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_MEMALIGN__)
 /* Allocate memory of SIZE bytes with an alignment of ALIGNMENT.  */
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __THROW __nonnull ((1)) __wur;
