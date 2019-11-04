@@ -1129,6 +1129,10 @@ menu "Realtime functions"
 		bool "Enable mlock functions"
 		default y
 
+	config UCLIB_HAS_RT_MQUEUE
+		bool "Enable mqueue functions"
+		default y
+
 	config UCLIBC_HAS_RT_CLOCK
 		bool "Enable clock functions"
 		default y

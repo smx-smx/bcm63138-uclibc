@@ -74,7 +74,7 @@ extern int mq_send (mqd_t __mqdes, const char *__msg_ptr, size_t __msg_len,
 		    unsigned int __msg_prio);
 #endif
 
-#if defined __USE_XOPEN2K && defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#if defined __USE_XOPEN2K && (defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIB_HAS_RT_MQUEUE__)
 /* Receive the oldest from highest priority messages in message queue
    MQDES, stop waiting if ABS_TIMEOUT expires.  */
 extern ssize_t mq_timedreceive (mqd_t __mqdes, char *__restrict __msg_ptr,
