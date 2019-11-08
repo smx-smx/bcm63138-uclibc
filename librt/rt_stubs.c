@@ -25,7 +25,7 @@ static int rt_enosys_stub(void)
 
 #ifndef __NR_mq_timedreceive
 make_stub(mq_receive)
-# ifdef __UCLIBC_HAS_ADVANCED_REALTIME__
+# if defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_RT_MQUEUE__
 make_stub(mq_timedreceive)
 # endif
 #endif

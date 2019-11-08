@@ -18,7 +18,7 @@ static _syscall5(int, __syscall_mq_timedreceive, int, mqdes,
 		 char *, msg_ptr, size_t, msg_len, unsigned int *,
 		 msg_prio, const void *, abs_timeout);
 
-# ifdef __UCLIBC_HAS_ADVANCED_REALTIME__
+# if defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_RT_MQUEUE__
 /*
  * Receive the oldest from highest priority messages.
  * Stop waiting if abs_timeout expires.
