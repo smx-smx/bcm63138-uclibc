@@ -21,6 +21,11 @@ CSRC:=	authunix_prot.c auth_none.c auth_unix.c bindresvport.c \
 	xdr.c xdr_array.c xdr_mem.c xdr_rec.c xdr_reference.c
 endif
 
+ifeq ($(UCLIBC_HAS_RPC_CLIENT),y)
+CSRC+= clnt_generic.c clnt_perror.c clnt_raw.c clnt_simple.c \
+	   clnt_tcp.c clnt_udp.c clnt_unix.c get_myaddress.c
+endif
+
 ifeq ($(UCLIBC_HAS_SVC_EXTENSIONS),y)
 CSRC+= svc_simple.c svc_tcp.c svc_udp.c svc_unix.c svc_raw.c svc_run.c
 endif

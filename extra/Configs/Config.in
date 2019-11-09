@@ -1308,6 +1308,9 @@ config UCLIBC_HAS_RPC
 
 	  If you need to use NFS then you should answer Y.
 
+config UCLIBC_HAS_RPC_CLIENT
+	bool "RPC client"
+
 config UCLIBC_HAS_SVC_EXTENSIONS
 	bool "svc extensions"
 	depends on UCLIBC_HAS_RPC
