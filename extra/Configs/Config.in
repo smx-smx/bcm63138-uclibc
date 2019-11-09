@@ -1083,6 +1083,10 @@ config UCLIBC_HAS_REALTIME
 	  timer_delete()
 	  timer_getoverrun(), timer_gettime(), timer_settime()
 
+config UCLIBC_HAS_MKOSTEMP
+	bool "mkostemp"
+	default y
+
 config UCLIBC_HAS_ADVANCED_REALTIME
 	bool "Advanced realtime-related family of SUSv functions"
 	default y

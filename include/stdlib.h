@@ -652,7 +652,7 @@ extern int mkstemp64 (char *__template) __nonnull ((1)) __wur;
 extern char *mkdtemp (char *__template) __THROW __nonnull ((1)) __wur;
 #endif
 
-#ifdef __USE_GNU
+#if defined __USE_GNU && defined __UCLIBC_HAS_MKOSTEMP__
 /* Generate a unique temporary file name from TEMPLATE similar to
    mkstemp.  But allow the caller to pass additional flags which are
    used in the open call to create the file..
