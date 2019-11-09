@@ -1083,6 +1083,10 @@ config UCLIBC_HAS_REALTIME
 	  timer_delete()
 	  timer_getoverrun(), timer_gettime(), timer_settime()
 
+config UCLIBC_HAS_EXECVPE
+	bool "execvpe"
+	default y
+
 config UCLIBC_HAS_MKOSTEMP
 	bool "mkostemp"
 	default y

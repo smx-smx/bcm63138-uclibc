@@ -41,6 +41,10 @@ ifeq ($(UCLIBC_HAS_THREADS_NATIVE),y)
 CSRC := $(filter-out sleep.c,$(CSRC))
 endif
 
+ifeq ($(UCLIBC_HAS_EXECVPE),)
+CSRC := $(filter-out execvpe.c,$(CSRC))
+endif
+
 UNISTD_SRC := $(patsubst %.c,$(UNISTD_DIR)/%.c,$(CSRC))
 UNISTD_OBJ := $(patsubst %.c,$(UNISTD_OUT)/%.o,$(CSRC))
 
