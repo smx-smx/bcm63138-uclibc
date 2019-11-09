@@ -105,7 +105,7 @@ static __inline__ int msync (void *__addr, size_t __len, int __flags) { return 0
    for the region starting at ADDR and extending LEN bytes.  */
 extern int madvise (void *__addr, size_t __len, int __advice) __THROW;
 #endif
-#if defined __USE_XOPEN2K && defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#if defined __USE_XOPEN2K && (defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_RT_MADVISE__)
 /* This is the POSIX name for this function.  */
 extern int posix_madvise (void *__addr, size_t __len, int __advice) __THROW;
 #endif

@@ -188,7 +188,7 @@ libc_hidden_proto(lockf64)
 # endif
 #endif
 
-#if defined __USE_XOPEN2K && defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#if defined __USE_XOPEN2K && (defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_RT_FADVISE__)
 /* Advice the system about the expected behaviour of the application with
    respect to the file associated with FD.  */
 # ifndef __USE_FILE_OFFSET64
@@ -210,7 +210,7 @@ extern int posix_fadvise64 (int __fd, __off64_t __offset, __off64_t __len,
 
 #endif
 
-#if defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#if defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_RT_FALLOCATE__
 
 /* Reserve storage for the data of the file associated with FD.
 

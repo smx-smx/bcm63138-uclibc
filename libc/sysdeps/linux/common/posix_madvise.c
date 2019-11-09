@@ -4,7 +4,7 @@
 #include <sys/mman.h>
 #include <sys/syscall.h>
 
-#if defined __NR_madvise && defined __USE_XOPEN2K && defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#if defined __NR_madvise && defined __USE_XOPEN2K && (defined __UCLIBC_HAS_ADVANCED_REALTIME__ || defined __UCLIBC_HAS_RT_MADVISE__)
 int posix_madvise(void *addr, size_t len, int advice)
 {
 	int result;

@@ -1129,6 +1129,14 @@ menu "Realtime functions"
 		bool "Enable mlock functions"
 		default y
 
+	config UCLIBC_HAS_RT_FALLOCATE
+		bool "Enable fallocate functions"
+		default y
+
+	config UCLIBC_HAS_RT_MADVISE
+		bool "Enable madvise functions"
+		default y
+
 	config UCLIBC_HAS_RT_MQUEUE
 		bool "Enable mqueue functions"
 		default y
@@ -1137,8 +1145,8 @@ menu "Realtime functions"
 		bool "Enable clock functions"
 		default y
 
-	config UCLIBC_HAS_RT_ADVISE
-		bool "Enable fadvise/madvise functions"
+	config UCLIBC_HAS_RT_FADVISE
+		bool "Enable fadvise"
 		default y
 
 	config UCLIBC_HAS_RT_SEMA
