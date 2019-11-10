@@ -568,7 +568,7 @@ extern int execlp (__const char *__file, __const char *__arg, ...)
      __THROW __nonnull ((1));
 libc_hidden_proto(execlp)
 
-#ifdef __USE_GNU
+#if defined  __USE_GNU && defined __UCLIBC_HAS_EXECVPE__
 /* Execute FILE, searching in the `PATH' environment variable if it contains
    no slashes, with arguments ARGV and environment from a pointer */
 extern int execvpe (__const char *__file, char *__const __argv[], char *__const __envp[])
