@@ -362,7 +362,7 @@ extern int clock_settime (clockid_t __clock_id, __const struct timespec *__tp)
      __THROW;
 #  endif /* __UCLIBC_HAS_REALTIME__ */
 #  ifdef __UCLIBC_HAS_THREADS_NATIVE__
-#   if defined __USE_XOPEN2K && defined __UCLIBC_HAS_ADVANCED_REALTIME__
+#   if defined __USE_XOPEN2K || defined __UCLIBC_HAS_ADVANCED_REALTIME__
 /* High-resolution sleep with the specified clock.
 
    This function is a cancellation point and therefore not marked with
