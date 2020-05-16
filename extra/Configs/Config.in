@@ -1086,6 +1086,10 @@ config UCLIBC_HAS_REALTIME
 config UCLIBC_HAS_FALLOCATE
 	bool "fallocate"
 
+config UCLIBC_HAS_UNSHARE
+	bool "unshare"
+	default y
+
 config UCLIBC_HAS_EXECVPE
 	bool "execvpe"
 	default y
