@@ -199,14 +199,14 @@ float fmaf (float x, float y, float z)
 }
 #endif
 
-#ifdef L_fmaxf
+#if defined(L_fmaxf) && defined(__UCLIBC_HAS_FMAXF__)
 float fmaxf (float x, float y)
 {
 	return (float) fmax( (double)x, (double)y );
 }
 #endif
 
-#ifdef L_fminf
+#if defined(L_fminf) && defined(__UCLIBC_HAS_FMINF__)
 float fminf (float x, float y)
 {
 	return (float) fmin( (double)x, (double)y );
@@ -310,11 +310,11 @@ float modff (float x, float *iptr)
 }
 #endif
 
-#ifdef L_nearbyintf
+#if defined(L_nearbyintf) && defined(__UCLIBC_HAS_NEARBYINTF__)
 WRAPPER1(nearbyint)
 #endif
 
-#ifdef L_nexttowardf
+#if defined(L_nexttowardf) && defined(__UCLIBC_HAS_NEXTTOWARD__)
 float nexttowardf (float x, long double y)
 {
 	return (float) nexttoward( (double)x, (long double)y );
@@ -350,7 +350,7 @@ WRAPPER1(rint)
 WRAPPER1(round)
 #endif
 
-#ifdef L_scalblnf
+#if defined(L_scalblnf) && defined(__UCLIBC_HAS_SCALBLNF__)
 float scalblnf (float x, long _exp)
 {
 	return (float) scalbln( (double)x, _exp );
@@ -385,7 +385,7 @@ WRAPPER1(tan)
 WRAPPER1(tanh)
 #endif
 
-#ifdef L_tgammaf
+#if defined(L_tgammaf) && defined(__UCLIBC_HAS_TGAMMAF__)
 WRAPPER1(tgamma)
 #endif
 

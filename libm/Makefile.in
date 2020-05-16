@@ -98,8 +98,6 @@ FL_MOBJ := \
 	fdimf.o \
 	floorf.o \
 	fmaf.o \
-	fmaxf.o \
-	fminf.o \
 	fmodf.o \
 	frexpf.o \
 	gammaf.o \
@@ -117,14 +115,11 @@ FL_MOBJ := \
 	lrintf.o \
 	lroundf.o \
 	modff.o \
-	nearbyintf.o \
-	nexttowardf.o \
 	powf.o \
 	remainderf.o \
 	remquof.o \
 	rintf.o \
 	roundf.o \
-	scalblnf.o \
 	scalbnf.o \
 	significandf.o \
 	sinf.o \
@@ -132,11 +127,34 @@ FL_MOBJ := \
 	sqrtf.o \
 	tanf.o \
 	tanhf.o \
-	tgammaf.o \
-	truncf.o \
+	truncf.o
+
+ifeq ($(UCLIBC_HAS_FMAXF),y)
+	FL_MOBJ += fmaxf.o
+endif
+
+ifeq ($(UCLIBC_HAS_FMINF),y)
+	FL_MOBJ += fminf.o
+endif
+
+ifeq ($(UCLIBC_HAS_NEARBYINTF),y)
+	FL_MOBJ += nearbyintf.o
+endif
+
+ifeq ($(UCLIBC_HAS_NEXTTOWARD),y)
+	FL_MOBJ += nexttowardf.o
+endif
+
+ifeq ($(UCLIBC_HAS_SCALBLNF),y)
+	FL_MOBJ += scalblnf.o
+endif
+
+ifeq ($(UCLIBC_HAS_TGAMMAF),y)
+	FL_MOBJ += tgammaf.o
+endif
 
 ifeq ($(UCLIBC_SUSV3_LEGACY),y)
-FL_MOBJ += scalbf.o
+	FL_MOBJ += scalbf.o
 endif
 
 # Do not (yet?) implement the float variants of bessel functions

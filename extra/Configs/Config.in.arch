@@ -163,6 +163,31 @@ config DO_C99_MATH
 	  If your applications require the newer C99 math library functions, 
 	  then answer Y.
 
+config UCLIBC_HAS_FMINF
+	bool "fminf"
+	default y
+
+config UCLIBC_HAS_FMAXF
+	bool "fmaxf"
+	default y
+
+config UCLIBC_HAS_NEARBYINTF
+	bool "nearbyintf"
+	default y
+
+config UCLIBC_HAS_NEXTTOWARD
+	bool "nexttoward"
+	default y
+
+config UCLIBC_HAS_SCALBLNF
+	bool "scalblnf"
+	default y
+
+config UCLIBC_HAS_TGAMMAF
+	bool "tgammaf"
+	default y
+
+
 config DO_XSI_MATH
 	bool "Enable XSI math extensions to the ISO C standard (bessel)"
 	depends on UCLIBC_HAS_FLOATS
