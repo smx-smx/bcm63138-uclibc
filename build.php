@@ -58,10 +58,10 @@ switch(@$argv[1]){
 		break;
 	case 'check':
 		//// Get files names
-		$libFilesB = glob('out/lib/*.so');
+		$libFilesB = glob('out/lib/*.so*');
 		$libNamesB = array_map('basename', $libFilesB);
 
-		$libFilesA = glob($argv[2] . '/*.so');
+		$libFilesA = glob($argv[2] . '/*.so*');
 		$libNamesA = array_map('basename', $libFilesA);
 
 		//// Create associative arrays
@@ -70,6 +70,7 @@ switch(@$argv[1]){
 
 		//// Remove libs of A not in B, from A
 		$extraLibs = array_diff_key($libsA, $libsB);
+
 		$libsA = array_diff($libsA, $extraLibs);
 
 		//// We don't need names anymore
