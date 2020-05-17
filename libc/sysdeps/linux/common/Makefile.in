@@ -23,7 +23,6 @@ CSRC-$(UCLIBC_LINUX_SPECIFIC) += \
 	bdflush.c \
 	capget.c \
 	capset.c \
-	eventfd.c \
 	inotify.c \
 	ioperm.c \
 	iopl.c \
@@ -58,6 +57,7 @@ CSRC-$(UCLIBC_LINUX_SPECIFIC) += \
 	uselib.c \
 	vhangup.c \
 	vmsplice.c
+CSRC-$(UCLIBC_HAS_EVENTFD) += eventfd.c
 CSRC-$(UCLIBC_HAS_UNSHARE) += unshare.c
 CSRC-$(if $(findstring yy,$(UCLIBC_LINUX_SPECIFIC)$(UCLIBC_HAS_LFS)),y) += \
 	sendfile64.c

@@ -22,6 +22,7 @@
 #include <math.h>
 #include <complex.h>
 
+#if defined(__UCLIBC_HAS_CEXP__)
 __complex__ double cexp(__complex__ double z)
 {
 	__complex__ double ret;
@@ -46,6 +47,7 @@ __complex__ float cexpf(__complex__ float z)
 	return ret;
 }
 libm_hidden_def(cexpf)
+#endif
 
 #if defined __UCLIBC_HAS_LONG_DOUBLE_MATH__ && !defined __NO_LONG_DOUBLE_MATH
 libm_hidden_proto(cexpl)

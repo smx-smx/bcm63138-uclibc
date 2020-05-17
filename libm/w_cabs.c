@@ -14,12 +14,14 @@ double cabs(double _Complex z)
 }
 libm_hidden_def(cabs)
 
+#if defined(__UCLIBC_HAS_CABSF__)
 libm_hidden_proto(cabsf)
 float cabsf(float _Complex z)
 {
 	return (float) hypot(__real__ z, __imag__ z);
 }
 libm_hidden_def(cabsf)
+#endif
 
 #if defined __UCLIBC_HAS_LONG_DOUBLE_MATH__ && !defined __NO_LONG_DOUBLE_MATH
 libm_hidden_proto(cabsl)

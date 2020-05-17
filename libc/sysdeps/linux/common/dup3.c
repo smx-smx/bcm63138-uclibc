@@ -11,7 +11,7 @@
 #include <unistd.h>
 
 
-#ifdef __NR_dup3
+#if defined(__NR_dup3) && defined(__UCLIBC_HAS_DUP3__)
 _syscall3(int, dup3, int, oldfd, int, newfd, int, flags)
 libc_hidden_def(dup3)
 #endif

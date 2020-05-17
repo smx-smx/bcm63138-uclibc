@@ -95,9 +95,7 @@ FL_MOBJ := \
 	expf.o \
 	expm1f.o \
 	fabsf.o \
-	fdimf.o \
 	floorf.o \
-	fmaf.o \
 	fmodf.o \
 	frexpf.o \
 	gammaf.o \
@@ -117,7 +115,6 @@ FL_MOBJ := \
 	modff.o \
 	powf.o \
 	remainderf.o \
-	remquof.o \
 	rintf.o \
 	roundf.o \
 	scalbnf.o \
@@ -128,6 +125,18 @@ FL_MOBJ := \
 	tanf.o \
 	tanhf.o \
 	truncf.o
+
+ifeq ($(UCLIBC_HAS_REMQUOF),y)
+	FL_MOBJ += remquof.o
+endif
+
+ifeq ($(UCLIBC_HAS_FDIMF),y)
+	FL_MOBJ += fdimf.o
+endif
+
+ifeq ($(UCLIBC_HAS_FMAF),y)
+	FL_MOBJ += fmaf.o
+endif
 
 ifeq ($(UCLIBC_HAS_FMAXF),y)
 	FL_MOBJ += fmaxf.o
