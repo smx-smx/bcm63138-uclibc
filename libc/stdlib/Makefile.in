@@ -36,9 +36,10 @@ endif
 
 # multi source stdlib.c
 CSRC-y += abs.c labs.c atoi.c atol.c strtol.c strtoul.c _stdlib_strto_l.c \
-	qsort.c qsort_r.c bsearch.c rpmatch.c \
+	qsort.c bsearch.c rpmatch.c \
 	llabs.c atoll.c strtoll.c strtoull.c _stdlib_strto_ll.c
 # (aliases) strtoq.o strtouq.o
+CSRC_$(UCLIBC_HAS_QSORT_R) += qsort_r.c
 CSRC-$(UCLIBC_HAS_FLOATS) += atof.c
 CSRC-$(UCLIBC_HAS_XLOCALE) += strtol_l.c strtoul_l.c _stdlib_strto_l_l.c \
 	strtoll_l.c strtoull_l.c _stdlib_strto_ll_l.c

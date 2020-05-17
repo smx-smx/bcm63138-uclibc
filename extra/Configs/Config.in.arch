@@ -219,6 +219,10 @@ config UCLIBC_HAS_IFADDR_GET_FREE
 	bool "ifaddr_get_free"
 	default y
 
+config UCLIBC_HAS_QSORT_R
+	bool "qsort_r"
+	default y
+
 config DO_XSI_MATH
 	bool "Enable XSI math extensions to the ISO C standard (bessel)"
 	depends on UCLIBC_HAS_FLOATS

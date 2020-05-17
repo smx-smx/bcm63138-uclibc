@@ -792,7 +792,7 @@ void *bsearch(const void *key, const void *base, size_t /* nmemb */ high,
 
 #endif
 /**********************************************************************/
-#ifdef L_qsort_r
+#if defined(L_qsort_r) && defined(__UCLIBC_HAS_QSORT_R__)
 
 /* This code is derived from a public domain shell sort routine by
  * Ray Gardner and found in Bob Stout's snippets collection.  The
