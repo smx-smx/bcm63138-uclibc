@@ -6,17 +6,38 @@
 define('CROSS', 'arm-buildroot-linux-uclibcgnueabi-');
 
 function getSymbols($lib){
-	$h = popen(CROSS.'readelf -D -s ' . escapeshellarg($lib), 'r') or die('readelf failure' . PHP_EOL);
-	fgets($h);fgets($h);fgets($h);
+	$cmd = "LC_MESSAGES=C " . CROSS . "readelf -D -s " . escapeshellarg($lib);
+	$h = popen($cmd, 'r') or die('readelf failure' . PHP_EOL);
 
 	$syms = array();
-	while(!feof($h)){
-		$line = fgets($h);
-		$symbol = trim(strrchr($line, ' '));
-		$syms[] = $symbol;
-	}
-	pclose($h);
 
+	while(!feof($h)){
+		$line = trim(fgets($h));
+		if($line === FALSE){
+			continue;
+		}
+		$parts = preg_split("/[ \t]+/", $line);
+		if(count($parts) < 9){
+			continue;
+		}
+
+		list(
+			$num, $buc, $value,
+			$size, $type, $bind, $vis, $ndx, $name
+		) = $parts;
+
+		// some sanity checks (skips readelf header aswell)
+		if(
+			!is_numeric($num) ||
+			!is_numeric($size)
+		){
+			continue;
+		}
+
+		$syms[] = $name;
+	}
+
+	pclose($h);
 	return $syms;
 }
 
